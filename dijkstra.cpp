@@ -27,8 +27,12 @@ int main(int argc, char **argv) {
 	}
 	cout << "nodeNames = " << nodeNames << endl; // debug
 
-	// third line
+	// Third line and on. This is the adjacency matrix representing the graph.
+	int** matrix = new int*[numNodes];
+	for(int i=0; i<numNodes; ++i)
+		matrix[i] = new int[numNodes];
 
+	
 
 
 
