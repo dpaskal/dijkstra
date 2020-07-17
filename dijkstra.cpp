@@ -32,8 +32,14 @@ int main(int argc, char **argv) {
 	for(int i=0; i<numNodes; ++i)
 		matrix[i] = new int[numNodes];
 
-	
+	// Initialize the matrix from input file
+	for(int i=0; i<numNodes; ++i) {
+		for(int j=0; j<numNodes; ++j) {
+			inFile >> matrix[i][j];
+		}
+	}
 
+	// Debug print the matrix
 
 
 	return 0;
