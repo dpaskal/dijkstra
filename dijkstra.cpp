@@ -46,5 +46,15 @@ int main(int argc, char **argv) {
 		}
 		cout << endl;
 	}
+
+
+	// Dijkstra's algorithm time
+
 	return 0;
+}
+
+
+// Helper function for pretty printing adjacency matrix
+void prettyPrint(int numNodes, char* nodeNames, int** matrix) {
+	;
 }
