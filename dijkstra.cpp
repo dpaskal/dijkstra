@@ -33,7 +33,7 @@ int main(int argc, char **argv) {
 	ifstream inFile;
 	int numNodes;
 
-	if (!(argc == 2)) {
+	if (argc != 2) {
 		cerr << "Usage: ./dijkstra <input.txt>" << endl;
 		exit(EXIT_FAILURE);
 	}
@@ -91,7 +91,7 @@ int main(int argc, char **argv) {
 	}
 	
 	// Result table
-	cout << "Result table:" << endl;
+	prettyTable(numNodes, nodeNames, matrix);
 
 	return 0;
 }
