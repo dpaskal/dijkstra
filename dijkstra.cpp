@@ -71,10 +71,7 @@ int main(int argc, char **argv) {
 
 
 	// Read an input from the user regarding the starting node
-	cout << "Which of these nodes should we start at: ";
-	for(int i=0; i<numNodes; i++)
-		cout << nodeNames[i] << ' ';
-	cout << "? ";
+	cout << "Enter starting node:" << endl;
 	cin >> startNode;
 
 	// Verify the input is valid
@@ -87,6 +84,9 @@ int main(int argc, char **argv) {
 		cerr << "input value is not a valid node" << endl;
 		exit(EXIT_FAILURE);
 	}
+	
+	// Result table
+	cout << "Result table:" << endl;
 
 	return 0;
 }
