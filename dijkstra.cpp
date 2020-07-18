@@ -4,7 +4,7 @@
 using namespace std;
 
 // Helper function for pretty printing adjacency matrix
-void prettyPrint(int numNodes, char* nodeNames, int** matrix) {
+void prettyMatrix(int numNodes, char* nodeNames, int** matrix) {
 	char tab = '\t';
 	cout << "Adjacency matrix: " << endl;
 	cout << endl;
@@ -21,6 +21,11 @@ void prettyPrint(int numNodes, char* nodeNames, int** matrix) {
 		cout << endl << endl;
 
 	}
+}
+
+//Helper function for pretty printing result table
+void prettyTable(int numNodes, char* nodeNames, int** matrix) {
+	;
 }
 
 int main(int argc, char **argv) {
@@ -67,7 +72,7 @@ int main(int argc, char **argv) {
 	// 	}
 	// 	cout << endl;
 	// }
-	prettyPrint(numNodes, nodeNames, matrix);
+	prettyMatrix(numNodes, nodeNames, matrix);
 
 
 	// Read an input from the user regarding the starting node
