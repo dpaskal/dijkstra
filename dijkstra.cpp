@@ -28,10 +28,15 @@ void prettyTable(int numNodes, char* nodeNames, int** matrix) {
 	;
 }
 
+// Function to run the algorithm
+void dijkstra(int** matrix, int startIndex) {
+	;
+}
+
 int main(int argc, char **argv) {
 	char startNode;
 	ifstream inFile;
-	int numNodes;
+	int numNodes, startIndex;
 
 	if (argc != 2) {
 		cerr << "Usage: ./dijkstra <input.txt>" << endl;
@@ -90,6 +95,14 @@ int main(int argc, char **argv) {
 		exit(EXIT_FAILURE);
 	}
 	
+	// Get the start index given the inputed startNode
+	for(int i=0; i<numNodes; ++i) {
+		if( nodeNames[i] == startNode ) {
+			startIndex = i;
+		}
+	}
+
+	dijkstra(matrix, startIndex);
 	// Result table
 	prettyTable(numNodes, nodeNames, matrix);
 
