@@ -25,12 +25,69 @@ void prettyMatrix(int numNodes, char* nodeNames, int** matrix) {
 
 //Helper function for pretty printing result table
 void prettyTable(int numNodes, char* nodeNames, int** matrix) {
-	;
+	char tab = '\t';
+	cout << "Result table:" << endl << endl;
+
+	cout << "N'" << tab << tab;
+	for(int i=0; i<numNodes; i++) {
+		cout << "D(" << nodeNames[i] << "),p(" << nodeNames[i] << ")" << tab;
+	}
+	cout << endl;
+
+	int counter = numNodes;
+	for(int i=0; i<numNodes; i++) {
+		for(int z=0; z <= i; z++) {
+			cout << nodeNames[z];
+		}
+		cout << tab;
+		for(int j=0; j<numNodes; j++) {
+			;
+		}
+		cout << endl;
+	}
 }
 
+
+// Helper function to calculate the minimum distance for a node
+// Returns the index of the shortest path
+int minimumDistance(int* dist, bool* visited, int numNodes) {
+	int min = INT32_MAX;
+	int index;
+
+	for(int i=0; i < numNodes; i++) {
+		if(visited[i] == false && dist[i] <= min) {
+			min=dist[i];
+			index=i;
+		}
+	}
+	return index;
+}
+
+
 // Function to run the algorithm
-void dijkstra(int** matrix, int startIndex) {
-	;
+void dijkstra(int** matrix, int numNodes, int startIndex) {
+	int dist[numNodes]; // Array for calculating minimum distance for each node
+	bool visited[numNodes]; // Array for marking visited nodes
+	
+	// Initialize arrays
+	for(int i=0; i<numNodes; ++i) {
+		dist[i] = INT32_MAX;
+		visited[i] = false;
+	}
+
+	dist[startIndex] = 0; // Set start point to 0
+
+	for(int i=0; i<numNodes; ++i) {
+		int minDist = minimumDistance(dist, visited, numNodes);
+		visited[minDist] = true;
+		for(int j=0; j<numNodes; ++j) {
+			if(!visited[i] && matrix[minDist][j] && dist[minDist] != INT32_MAX && dist[minDist] + matrix[minDist][j] < dist[i]) {
+				dist[i] = dist[minDist] + matrix[minDist][i];
+			}
+		}
+	}
+
+
 }
 
 int main(int argc, char **argv) {
@@ -102,7 +159,7 @@ int main(int argc, char **argv) {
 		}
 	}
 
-	dijkstra(matrix, startIndex);
+	dijkstra(matrix, numNodes, startIndex);
 	// Result table
 	prettyTable(numNodes, nodeNames, matrix);
 
